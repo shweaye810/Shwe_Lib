@@ -5,7 +5,6 @@
 
 using namespace std;
 
-//testing
 /*
  * is_number - check to see if c is a number
  * @c: character
