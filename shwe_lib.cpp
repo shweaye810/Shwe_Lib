@@ -36,7 +36,7 @@ bool is_delim(const char &c)
 }
 
 /*
- * set_lower: set whole string to lower case
+ * set_lower - set whole string to lower case
  * @s: string
  * 
  * using a loop to loop through whole string and
@@ -49,6 +49,13 @@ void set_lower(string &s)
     }
 }
 
+/*
+ * is_space - if the charater is space
+ * @c: character
+ *
+ * if c is space, return true
+ * else, return fales
+ */
 bool is_space(const char &c)
 {
     if (c == ' ')
@@ -56,7 +63,16 @@ bool is_space(const char &c)
     return false;
 }
 
-int get_num(const string &s, bool &fail);
+/*
+ * test_user_in - test if user enter correctly
+ * @user_in: user input
+ * @n: number of power
+ * @fail: bool counter
+ * @c: character from function caller
+ *
+ * get the number from console by calling get_num function.
+ * if user enter empty string, then it fails, print Error.
+ */
 void test_user_in(string &user_in, int &n, bool &fail, char c)
 {
     if (!user_in.empty())
@@ -67,6 +83,11 @@ void test_user_in(string &user_in, int &n, bool &fail, char c)
     }
 }
 
+/*
+ * cin_degree - get the degree from user input
+ *
+ * get line from console and test user input by calling test_user_in function
+ */
 unsigned int cin_degree()
 {
     string user_in;
@@ -81,6 +102,12 @@ unsigned int cin_degree()
     return deg;
 }
 
+/*
+ * cin_coefficient - get coefficient from console
+ * int i: power
+ *
+ * get line from console and test user input by calling test_user_in function
+ */
 int cin_coefficient(int i)
 {
     int num;
@@ -91,19 +118,27 @@ int cin_coefficient(int i)
         cout << "Please enter coefficient for x^" << i << ": " << flush;
         getline(cin, user_in);
         test_user_in(user_in, num, fail, 'c');
-    } while (user_in.empty() || fail);
+    } while (fail);
     return num;
 }
 
+/*
+ * get_num - get number from string
+ * @s: string
+ * @fail: bool counter
+ *
+ * insert string into stringstream and ignore as much space then get integer
+ * and return it
+ */
 int get_num(const string &s, bool &fail)
 {
-    int deg = 0;
+    int n = 0;
     stringstream s_strm(s);
     while (is_space(s_strm.peek())) {
         s_strm.get();
     }
-    s_strm >> deg;
+    s_strm >> n;
     if (s_strm.fail())
         fail = true;
-    return deg;
+    return n;
 }
