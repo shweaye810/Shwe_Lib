@@ -1,7 +1,1 @@
-shwe_lib.cpp file is help file for assignment.
-
-Instead of rewriting again and again for different assignment in file, keeping
-it seperate to save some space.
-
-header file and cpp file are designed for a class, but I don't know other way to
-use it. I might be wrong using like this, but oh well.
+useful functions for c++ programming.
